@@ -1,10 +1,11 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
+import { AppService } from './app.service'
 
 @Controller()
 export class AppController {
-  @Get()
-  @Render('index')
-  root() {
-    return { message: 'Index Page' };
+  private appService: AppService
+
+  constructor() {
+    this.appService = new AppService()
   }
 }
